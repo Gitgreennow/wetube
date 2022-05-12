@@ -1,7 +1,10 @@
-doctype html 
-html(lang="ko")
-    head    
-        title Wetube 
-    body 
-        h1 Watch Video! 
-    include partials/footer.pug   
+extends base.pug
+
+
+block content 
+    h1=video.title
+    p=video.description
+    small=video.createdAt
+    hr
+    a(href=`${video.id}/edit`) Edit Video &rarr;
+    a(href=`${video.id}/delete`) Delete Video &rarr;
