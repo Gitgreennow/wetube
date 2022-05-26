@@ -1,10 +1,15 @@
 extends base.pug
 
 
-block content 
-    h1=video.title
-    p=video.description
-    small=video.createdAt
-    hr
-    a(href=`${video.id}/edit`) Edit Video &rarr;
-    a(href=`${video.id}/delete`) Delete Video &rarr;
+block content
+    video(src="/" + video.fileUrl, controls)
+    div 
+        p=video.description
+        small=video.createdAt
+    div 
+        small Uploaded by
+            a(href=`/user/${video.owner._id}`) #{video.owner.name}
+    if String(video.owner.id) === String(loggedInUser._id)
+        a(href=`${video.id}/edit`) Edit Video &rarr;
+        hr
+        a(href=`${video.id}/delete`) Delete Video &rarr;
