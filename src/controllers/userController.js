@@ -100,7 +100,7 @@ export const postLogin = async (req, res) => {
 };
 export const logout = (req, res) => {
   req.session.destroy();
-  req.flash("info", "Bye~");
+
   return res.redirect("/");
 };
 export const see = async (req, res) => {
