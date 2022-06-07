@@ -65,7 +65,7 @@ export const search = async (req, res) => {
       },
     }).populate("owner");
   }
-  return res.render("Search", { pageTitle: "Search", videos });
+  return res.render("search", { pageTitle: "Search", videos });
 };
 export const getUpload = (req, res) => {
   return res.render("upload", { pageTitle: "Upload Video" });
